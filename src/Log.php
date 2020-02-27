@@ -188,7 +188,7 @@ class Log
      *
      * @param mixed $msg 日志内容，支持字符串和数组
      * @param string $level 日志级别，包含 debug, info, notice, warning, error, critical, alert, emergency
-     * @param string $channel 通道，相当于可配置不同级别的记录配置或者是不同业务使用的日志存储方式
+     * @param string $channel 通道（可选），相当于可配置不同级别的记录配置或者是不同业务使用的日志存储方式
      * @param string $service 服务 如：订单服务 order（可选，传入参数将会记录请求详细信息，不传默认透传日志数据）
      * @param string $operate 操作 如：支付操作 pay（可选）
      * @param array $context 上下文替换（可选，一般没用）
@@ -221,9 +221,9 @@ class Log
      * write 实时写入日志（推荐）
      * @param mixed $msg 日志内容
      * @param string $level 日志级别
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool|\think\log\Channel|\think\log\ChannelSet
      * @author bai
@@ -231,9 +231,9 @@ class Log
     public static function write(
         $msg,
         string $level,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -250,18 +250,18 @@ class Log
     /**
      * emergency 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function emergency(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -279,18 +279,18 @@ class Log
     /**
      * alert 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function alert(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -308,18 +308,18 @@ class Log
     /**
      * critical 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function critical(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -337,18 +337,18 @@ class Log
     /**
      * error 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function error(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -366,18 +366,18 @@ class Log
     /**
      * warning 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function warning(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -395,18 +395,18 @@ class Log
     /**
      * notice 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function notice(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -424,18 +424,18 @@ class Log
     /**
      * info 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function info(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -453,18 +453,18 @@ class Log
     /**
      * debug 级别日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function debug(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
@@ -482,18 +482,18 @@ class Log
     /**
      * sql 日志
      * @param mixed $msg 日志内容
-     * @param string $channel 通道
      * @param string $service 服务
      * @param string $operate 操作
+     * @param string $channel 通道
      * @param array $context 上下文替换
      * @return bool
      * @author bai
      */
     public static function sql(
         $msg,
-        string $channel = "",
         string $service = "",
         string $operate = "",
+        string $channel = "",
         array $context = []
     ) {
         try {
