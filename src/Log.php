@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace Topphp\TopphpLog;
 
+use think\console\Output;
 use think\facade\Config;
-use think\facade\Env;
 use think\facade\Log as Logger;
 
 class Log
@@ -58,14 +58,17 @@ class Log
     private static function consoleDump($data)
     {
         try {
-            if (Env::get('APP_DEBUG')) {
+            if (env('APP_DEBUG')) {
                 $msg = var_export($data, true);// 将数据转字符串（根据实际情况加或不加）
-                // todo 这里写swoole控制台打印方法
+                $o = new Output();
+                $o->info($msg);
+                return true;
             }
         } catch (\Exception $e) {
             self::$errorLog = "[" . $e->getLine() . "]" . $e->getMessage() . " @ " . $e->getFile();
             return false;
         }
+        return true;
     }
 
     /**
