@@ -36,20 +36,20 @@ class LogTest extends HttpTestCase
         // 使用默认文件日志通道【file】
         Log::record("测试日志", "debug");// debug
 
-        Log::write("测试日志（带请求数据）", "info", "", "订单服务", "支付操作");// info
+        Log::write("测试日志（带请求数据）", "info", "订单服务", "支付操作");// info
 
         Log::notice("测试级别日志");// notice
 
-        Log::warning("测试级别日志（带请求数据）", "", "订单服务", "支付操作");// warning
+        Log::warning("测试级别日志（带请求数据）", "订单服务", "支付操作");// warning
 
         // 使用阿里云日志通道【aliyun】
         Log::record("测试日志", "error", "aliyun");// error
 
-        Log::write("测试日志（带请求数据）", "critical", "aliyun", "用户服务", "登录操作");// critical
+        Log::write("测试日志（带请求数据）", "critical", "用户服务", "登录操作", "aliyun");// critical
 
-        Log::alert("测试级别日志", "aliyun");// alert
+        Log::alert("测试级别日志", "", "", "aliyun");// alert
 
-        Log::emergency("测试级别日志（带请求数据）", "aliyun", "用户服务", "登录操作");// emergency
+        Log::emergency("测试级别日志（带请求数据）", "用户服务", "登录操作", "aliyun");// emergency
 
         $this->assertTrue(true);
     }
