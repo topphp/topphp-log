@@ -15,7 +15,7 @@
  - 实时记录日志 write 方法（推荐）
  - 八大日志级别快捷方法（debug, info, notice, warning, error, critical, alert, emergency）
  - SQl类型日志 sql 方法
- - 清空内存中的日志信息 clear 方法等
+ - 清空内存中的日志信息 clear 方法等 
 
 ## 组件结构
 
