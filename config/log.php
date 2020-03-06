@@ -46,15 +46,15 @@ return [
             // 日志记录方式
             'type'              => 'Aliyun',
             // 使用你的阿里云访问秘钥 AccessKeyId
-            'access_key_id'     => 'LTAItlZKSCPZaGKr',
+            'access_key_id'     => '',
             // 使用你的阿里云访问秘钥 AccessKeySecret
-            'access_key_secret' => 'hGyA6o02V24Ar3hzxo6AKZayzWiOAq',
+            'access_key_secret' => '',
             // 创建的项目名称
-            'project'           => 'moviecard',
+            'project'           => '',
             // 选择与创建 project 所属区域匹配的 Endpoint
-            'endpoint'          => 'cn-beijing.log.aliyuncs.com',
+            'endpoint'          => '',
             // 创建的日志库名称
-            'logstore'          => 'moviecard-dev',
+            'logstore'          => '',
             // 使用JSON格式记录（存储阿里云建议使用json方式，效果更好）
             'json'              => false,
             // 关闭通道日志写入
