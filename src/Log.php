@@ -13,6 +13,7 @@ namespace Topphp\TopphpLog;
 use think\console\Output;
 use think\facade\Config;
 use think\facade\Log as Logger;
+use think\helper\Str;
 
 class Log
 {
@@ -59,9 +60,12 @@ class Log
     {
         try {
             if (env('APP_DEBUG')) {
-                $msg = var_export($data, true);// 将数据转字符串（根据实际情况加或不加）
-                $o = new Output();
-                $o->info($msg);
+                // json中文乱码加 JSON_UNESCAPED_UNICODE
+                $msg    = json_encode($data,JSON_UNESCAPED_UNICODE);
+                $date   = new \DateTime();
+                $output = app(Output::class);
+                $level  = Str::upper(debug_backtrace()[1]['function']);
+                $output->info("[{$date->format('Y-m-d H:i:s.u')}][{$level}] {$msg}");
                 return true;
             }
         } catch (\Exception $e) {
@@ -118,8 +122,8 @@ class Log
             self::$isFormatData = true;
             $param              = empty(request()->param()) ? "" : request()->param();
             $headers            = request()->header();
-            if (empty(request()->method())) {
-                $url = "is Command 命令行";
+            if (php_sapi_name() === 'cli') {
+                $url = "is Command";
             } else {
                 $url = request()->domain() . request()->url();
             }

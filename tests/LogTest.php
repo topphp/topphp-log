@@ -32,7 +32,7 @@ class LogTest extends HttpTestCase
     public function testLog()
     {
         self::init();
-
+        Log::debug('debug测试日志', 'op', 'channel');
         // 使用默认文件日志通道【file】
         Log::record("测试日志", "debug");// debug
 
