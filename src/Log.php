@@ -59,7 +59,7 @@ class Log
     private static function consoleDump($data)
     {
         try {
-            if (!env('APP_DEBUG')) {
+            if (env('APP_DEBUG')) {
                 // json中文乱码加 JSON_UNESCAPED_UNICODE
                 if (!is_string($data)) {
                     $data = json_encode($data, JSON_UNESCAPED_UNICODE);
