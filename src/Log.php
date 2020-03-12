@@ -122,7 +122,7 @@ class Log
             self::$isFormatData = true;
             $param              = empty(request()->param()) ? "" : request()->param();
             $headers            = request()->header();
-            if (php_sapi_name() === 'cli') {
+            if (empty($headers)) {
                 $url = "is Command";
             } else {
                 $url = request()->domain() . request()->url();
