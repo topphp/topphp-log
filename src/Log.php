@@ -59,13 +59,15 @@ class Log
     private static function consoleDump($data)
     {
         try {
-            if (env('APP_DEBUG')) {
+            if (!env('APP_DEBUG')) {
                 // json中文乱码加 JSON_UNESCAPED_UNICODE
-                $msg    = json_encode($data,JSON_UNESCAPED_UNICODE);
+                if (!is_string($data)) {
+                    $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+                }
                 $date   = new \DateTime();
                 $output = app(Output::class);
                 $level  = Str::upper(debug_backtrace()[1]['function']);
-                $output->info("[{$date->format('Y-m-d H:i:s.u')}][{$level}] {$msg}");
+                $output->info("[{$date->format('Y-m-d H:i:s.u')}][{$level}] {$data}");
                 return true;
             }
         } catch (\Exception $e) {
