@@ -130,9 +130,9 @@ class Log
                 $url = request()->domain() . request()->url();
             }
             $returnData = [
+                "log-data" => $data,
                 "service"  => $service,
                 "operate"  => $operate,
-                "log-data" => $data,
                 'headers'  => $headers,
                 "method"   => empty(request()->method()) ? "is Command 命令行" : request()->method(),
                 "param"    => $param,
