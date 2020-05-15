@@ -567,5 +567,4 @@ class Log
             return false;
         }
     }
-
 }

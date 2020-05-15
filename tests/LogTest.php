@@ -51,7 +51,6 @@ class LogTest extends HttpTestCase
 
         //Log::emergency("测试级别日志（带请求数据）", "用户服务", "登录操作", "aliyun");// emergency
 
-        $this->assertTrue(true);
+        return $this->assertTrue(true);
     }
-
 }
